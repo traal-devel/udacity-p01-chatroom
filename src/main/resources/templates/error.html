@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Chat Room Login</title>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/mdui/dist/js/mdui.js}"></script>
+<link rel="stylesheet" type="text/css" href="/css/login.css" />
+<link rel="stylesheet" th:href="@{/webjars/mdui/dist/css/mdui.css}">
+</head>
+<body>
+	<div class="logo_box" style="width:600px;">
+
+
+		<div class="container_text mdui-color-pink-accent" style="padding:15px;">
+
+			<div class="mdui-typo">
+				<h2 class="doc-chapter-title mdui-text-color-theme">An error occured</h2>
+			</div>
+      
+      <div class=" mdui-color-theme-50 doc-box-padding mdui-m-b-0" style="width: 200px;">
+        <h4>Errror Message:</h4>
+        <span th:text="message"></span>
+      </div>
+      
+      <div class="doc-box-padding mdui-m-t-4" style="width: 200px;">
+	      <a href="/" class="mdui-color-white mdui-btn mdui-btn-raised mdui-ripple">
+	        Back
+	      </a>
+      </div>
+		</div>
+	</div>
+
+</body>
+</html>
