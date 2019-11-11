@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <conversionRule conversionWord="uuid" 
+                  converterClass="nac.rest.util.LogbackUUIDConverter" />
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+
+	<appender name="EX_HANDLER_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>app-socket-exception-handler.log</file>
+    <append>true</append>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	    <fileNamePattern>
+	      %d{yyyy-MM-dd_HHmm}-socket-exception-handler.log
+	    </fileNamePattern>
+	    <maxHistory>30</maxHistory>
+	    <totalSizeCap>100MB</totalSizeCap>
+	  </rollingPolicy>
+  </appender>
+  
+  <appender name="APP_FILE" class="ch.qos.logback.core.FileAppender">
+    <file>app-socket.log</file>
+    <append>true</append>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <logger name="ExceptionHandlerLogger" level="debug" additivity="false">
+    <appender-ref ref="EX_HANDLER_FILE" />
+  </logger>
+
+	<logger name="edu.udacity.java.nano.ctrl" level="INFO" />
+	<logger name="edu.udacity.java.nano.chat" level="DEBUG" />
+	<logger name="edu.udacity.java.nano.util" level="DEBUG" />
+	<logger name="org.springframework" level="WARN" />
+
+	<root level="INFO">
+		<appender-ref ref="APP_FILE" />
+	</root>
+</configuration>
