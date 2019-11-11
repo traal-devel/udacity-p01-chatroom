@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * (Experiment) WebSocketHttpSessionConfigurator used to check if an valid
  * access_token / http-session exists. 
+ * Try to implement a simple security layer for the websocket.
  * 
  * @author traal-devel
  */
