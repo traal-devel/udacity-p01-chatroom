@@ -23,6 +23,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -69,7 +70,12 @@ public class ChatRoomBasicTest {
   @Before
   public void setUp() {
     System.setProperty("webdriver.chrome.driver", "data/webdriver/chromedriver");
-    driverUser1 = new ChromeDriver();
+    
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--headless"); // :TODO: td, 12.10.2019: Does not work. Try to fix it. 
+//    options.addArguments("window-size=1200x600");
+    
+    driverUser1 = new ChromeDriver(options);
     js = (JavascriptExecutor) driverUser1;
     vars = new HashMap<String, Object>();
     
