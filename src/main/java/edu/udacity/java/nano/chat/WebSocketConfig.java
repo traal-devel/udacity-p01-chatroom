@@ -3,6 +3,7 @@ package edu.udacity.java.nano.chat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.handler.invocation.HandlerMethodArgumentResolver;
@@ -28,7 +29,11 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
   @Value("${udacity.websocket.host}")
   private String websocketHost;
   
-  @Value("${udacity.websocket.port}")
+  // td, 12.11.2019, :INFO: Do not use @Value annotation, because otherwise
+  // the JUnit Webdriver tests with RANDOM_PORT are not working.
+  // Spring has for this reason the annotation @LocalServerPort, which returns
+  // you the current used Port.
+  @LocalServerPort
   private String webSocketPort;
   
   @Value("${udacity.websocket.prot}")
