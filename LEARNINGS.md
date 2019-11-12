@@ -6,6 +6,18 @@
 mvn clean package -DskipTests
 ```
 
+## Install on linux server
+
+```bash
+root@www:/etc/init.d# ln -s /usr/local/programs/udacity/chatroom-starter-0.0.2-SNAPSHOT.jar uda-chatroom
+root@www:/etc/init.d# update-rc.d uda-chatroom defaults
+root@www:/etc/init.d# service uda-chatroom
+Usage: /etc/init.d/uda-chatroom {start|stop|force-stop|restart|force-reload|status|run}
+root@www:/etc/init.d# service uda-chatroom start
+root@www:/etc/init.d# netstat -tulpen | grep -i 8080
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      1000       1051545    16182/java 
+```
+
 ## Sources
 
 - https://www.oracle.com/technical-resources/articles/java/jsr356.html
