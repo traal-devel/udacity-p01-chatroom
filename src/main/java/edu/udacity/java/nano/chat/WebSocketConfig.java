@@ -29,11 +29,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
   @Value("${udacity.websocket.host}")
   private String websocketHost;
   
-  // td, 12.11.2019, :INFO: Do not use @Value annotation, because otherwise
-  // the JUnit Webdriver tests with RANDOM_PORT are not working.
-  // Spring has for this reason the annotation @LocalServerPort, which returns
-  // you the current used Port.
-  @LocalServerPort
+  @Value("${udacity.websocket.port}")
   private String webSocketPort;
   
   @Value("${udacity.websocket.prot}")
