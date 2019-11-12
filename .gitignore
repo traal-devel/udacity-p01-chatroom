@@ -34,3 +34,5 @@ build/
 *.log
 *.class
 target/
+.attach*
+.history
