@@ -1,7 +1,9 @@
 package edu.udacity.java.nano.chat.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import org.apache.commons.collections4.BidiMap;
@@ -93,8 +95,17 @@ public class UserInfoService {
     return this.userAccessTokens.remove(strAccessToken);
   }
   
-  public List<String> getAllUsernames() {
-    return new ArrayList<String>(this.userAccessTokens.values());
+  /**
+   * Removes all access token. User with a valid session will be auto. 
+   * logged in.
+   */
+  public void removeAllAccessTokens() {
+    this.userAccessTokens.clear();
   }
   
+  public List<String> getAllUsernames() {
+    List<String> userList = new ArrayList<String>(this.userAccessTokens.values());
+    Collections.sort(userList);
+    return userList;
+  }
 }
