@@ -3,9 +3,6 @@ package edu.udacity.java.nano;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
-import javax.websocket.Session;
-
-import org.apache.tomcat.websocket.WsSession;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +37,5 @@ public class UserInfoServiceTest {
   public void testAcessTokenInvalid() {
     assertFalse(this.userInfoService.isAccessTokenValid("not-existing"));
   }
-  
-  
   
 }
