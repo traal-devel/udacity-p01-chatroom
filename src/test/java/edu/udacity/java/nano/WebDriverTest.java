@@ -42,7 +42,7 @@ public class WebDriverTest {
   /* methods */
   @Before
   public void initBrowser() {
-    System.setProperty("webdriver.chrome.driver", "data/webdriver/chromedriver");
+    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
     browser = new ChromeDriver();
   }
   
